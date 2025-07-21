@@ -8,22 +8,22 @@ A school management system built with Django, designed for English language scho
 
 ### 🔧 Initial Setup
 
-* [ ] Create Django project: `school_system`
-* [ ] Create apps: `accounts`, `organizations`, `students`, `teachers`, `classes`, `attendance`, `grades`, `dashboard`
+* [x] Create Django project: `school_system`
+* [x] Create apps: `accounts`, `organizations`, `students`, `teachers`, `classes`, `attendance`, `grades`, `dashboard`
 * [ ] Configure PostgreSQL
-* [ ] Set up email sending (SMTP, SendGrid, etc.)
+* [x] Set up email sending (SMTP, SendGrid, etc.)
 * [ ] Multi-tenant middleware to isolate data by organization
 
 ### 🔐 Users and Permissions
 
-* [ ] User roles: `admin`, `teacher`, `student`, `secretary`
-* [ ] Each user linked to an `Organization`
-* [ ] Login with role-based redirection
+* [x] User roles: `admin`, `teacher`, `student`, `secretary`
+* [x] Each user linked to an `Organization`
+* [x] Login with role-based redirection
 
 ### 📚 Entities and Relationships
 
-* [ ] CRUD for students
-* [ ] CRUD for teachers
+* [x] CRUD for students
+* [x] CRUD for teachers
 * [ ] CRUD for classes and rooms
 * [ ] Assign students and teachers to classes
 
@@ -35,7 +35,7 @@ A school management system built with Django, designed for English language scho
 
 ### 📊 Dashboard
 
-* [ ] Student count per month
+* [x] Student count per month
 * [ ] Absences per student
 * [ ] Average attendance per class/teacher
 
