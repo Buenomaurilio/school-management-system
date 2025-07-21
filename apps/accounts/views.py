@@ -38,4 +38,4 @@ def redirect_after_login(request):
     elif user.role == 'admin':
         return redirect('/admin/')  # ou um painel personalizado
     else:
-        return redirect('student_area')  # criaremos isso depois
+        return redirect('student_dashboard')
