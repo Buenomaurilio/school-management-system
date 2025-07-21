@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}My Classes{% endblock %}
+{% block content %}
+<h2 class="mb-4">Welcome, {{ request.user.first_name }}</h2>
+
+{% if classrooms %}
+<div class="row">
+    {% for classroom in classrooms %}
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ classroom.name }} - {{ classroom.level }}</h5>
+                    <p class="card-text">
+                        Schedule: {{ classroom.schedule }}<br>
+                        Room: {{ classroom.room }}
+                    </p>
+                    <a href="#" class="btn btn-outline-primary">Mark Attendance</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+    <div class="alert alert-info">No classes assigned to you.</div>
+{% endif %}
+{% endblock %}
