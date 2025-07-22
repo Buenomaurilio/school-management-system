@@ -26,11 +26,11 @@ A school management system built with Django, designed for English language scho
 * [x] CRUD for students
 * [x] CRUD for teachers
 * [x] CRUD for classes and rooms
-* [x] Assign students and teachers to classes
+* [ ] Assign students and teachers to classes (general enrollment screen in progress)
 
-### 📝 Grades and Attendance
+### 📜 Grades and Attendance
 
-* [ ] Attendance logging by class and date
+* [x] Attendance logging by class and date
 * [ ] Grade input and viewing per student
 * [ ] Student portal to view attendance and performance
 
