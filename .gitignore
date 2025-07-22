@@ -1,1 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# SQLite
+db.sqlite3
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.mo
+
+# Migrations
+**/migrations/__pycache__/
+**/migrations/*.pyc
+
+# VSCode
+.vscode/
+
+# Environments
+.env
+*.env
+.env.*
+
+# Virtualenv
+venv/
 school-venv/

@@ -1,5 +1,5 @@
 from django.db import models
-from organizations.models import Organization
+from apps.organizations.models import Organization
 from accounts.models import User
 
 class Student(models.Model):

@@ -42,14 +42,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'organizations',
-    'accounts',
-    'students',
-    'teachers',
-    'classes',
-    'attendance',
 
+    # Nossas apps
+    'apps.organizations',
+    'apps.attendance',
+    'apps.accounts',
+    'apps.students',
+    'apps.teachers',
+    'apps.classes',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -87,8 +89,12 @@ WSGI_APPLICATION = 'school_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'school_management',
+        'USER': 'postgres',
+        'PASSWORD': '147852',  # <- insira a senha do seu PostgreSQL
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

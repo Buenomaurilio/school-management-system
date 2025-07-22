@@ -1,8 +1,9 @@
 from django.http import HttpResponseForbidden
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from classes.models import Classroom
-from teachers.models import Teacher
+from apps.classes.models import Classroom
+from apps.teachers.models import Teacher
+
 
 @login_required
 def teacher_dashboard(request):

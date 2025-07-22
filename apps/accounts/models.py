@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from organizations.models import Organization
+from apps.organizations.models import Organization
+
 
 class User(AbstractUser):
     ROLE_CHOICES = [
