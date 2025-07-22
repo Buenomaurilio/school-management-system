@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Manage Students - {{ classroom.name }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+        {% for student in all_students %}
+            <div>
+                <label>
+                    <input type="checkbox" name="students" value="{{ student.id }}"
+                        {% if student in current_students %}checked{% endif %}>
+                    {{ student.full_name }} ({{ student.email }})
+                </label>
+            </div>
+        {% empty %}
+            <p>No students available in your organization.</p>
+        {% endfor %}
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+</form>
+
+<a href="{% url 'dashboard_teacher' %}">Back to Dashboard</a>
+{% endblock %}

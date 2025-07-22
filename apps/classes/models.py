@@ -33,11 +33,9 @@ class ClassGroup(models.Model):
     def __str__(self):
         return f"{self.name} ({self.schedule})"
 
-
-
 class Enrollment(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    class_group = models.ForeignKey(ClassGroup, on_delete=models.CASCADE)
+    student = models.ForeignKey('students.Student', on_delete=models.CASCADE)
+    class_group = models.ForeignKey('ClassGroup', on_delete=models.CASCADE)
     date_enrolled = models.DateField(auto_now_add=True)
 
     class Meta:
@@ -45,6 +43,18 @@ class Enrollment(models.Model):
 
     def __str__(self):
         return f"{self.student} - {self.class_group}"
+
+
+# class Enrollment(models.Model):
+#     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+#     class_group = models.ForeignKey(ClassGroup, on_delete=models.CASCADE)
+#     date_enrolled = models.DateField(auto_now_add=True)
+
+#     class Meta:
+#         unique_together = ('student', 'class_group')
+
+#     def __str__(self):
+#         return f"{self.student} - {self.class_group}"
 
 
 class Attendance(models.Model):
