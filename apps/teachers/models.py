@@ -1,6 +1,6 @@
 from django.db import models
 from apps.organizations.models import Organization
-from accounts.models import User
+from apps.accounts.models import User
 
 class Teacher(models.Model):
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)

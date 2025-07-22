@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-light">
-
+    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
@@ -26,10 +26,20 @@
             {% endif %}
         </div>
     </nav>
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 
     <!-- Conteúdo principal -->
     <div class="container mt-5">
         {% block content %}
+
         {% endblock %}
     </div>
 

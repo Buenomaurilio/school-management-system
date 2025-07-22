@@ -14,6 +14,7 @@ urlpatterns = [
 
     path('logout/', LogoutView.as_view(), name='logout'),
     path('admins/', include('apps.admins.urls')),
+    path('classes/', include('apps.classes.urls')),
 
     path('', lambda request: redirect('login')),
 ]

@@ -14,7 +14,8 @@
                         Schedule: {{ classroom.schedule }}<br>
                         Room: {{ classroom.room }}
                     </p>
-                    <a href="#" class="btn btn-outline-primary">Mark Attendance</a>
+                    {% comment %} <a href="#" class="btn btn-outline-primary">Mark Attendance</a> {% endcomment %}
+                    <a href="{% url 'mark_attendance' classroom.id %}" class="btn btn-outline-primary">Mark Attendance</a><a href="{% url 'manage_classroom_students' classroom.id %}" class="btn btn-secondary btn-sm">Manage Students</a>
                 </div>
             </div>
         </div>
