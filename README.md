@@ -9,8 +9,8 @@ A school management system built with Django, designed for English language scho
 ### 🔧 Initial Setup
 
 * [x] Create Django project: `school_system`
-* [x] Create apps: `accounts`, `organizations`, `students`, `teachers`, `classes`, `attendance`, `grades`, `dashboard`
-* [ ] Configure PostgreSQL
+* [x] Create apps: `accounts`, `organizations`, `students`, `teachers`, `classes`, `attendance`, `grades`
+* [x] Configure PostgreSQL
 * [x] Set up email sending (SMTP, SendGrid, etc.)
 * [ ] Multi-tenant middleware to isolate data by organization
 
@@ -19,13 +19,14 @@ A school management system built with Django, designed for English language scho
 * [x] User roles: `admin`, `teacher`, `student`, `secretary`
 * [x] Each user linked to an `Organization`
 * [x] Login with role-based redirection
+* [x] Logout with CSRF protection
 
 ### 📚 Entities and Relationships
 
 * [x] CRUD for students
 * [x] CRUD for teachers
-* [ ] CRUD for classes and rooms
-* [ ] Assign students and teachers to classes
+* [x] CRUD for classes and rooms
+* [x] Assign students and teachers to classes
 
 ### 📝 Grades and Attendance
 
@@ -35,7 +36,9 @@ A school management system built with Django, designed for English language scho
 
 ### 📊 Dashboard
 
-* [x] Student count per month
+* [x] Teacher dashboard: view assigned classes
+* [x] Admin dashboard: initial setup completed
+* [ ] Student dashboard: view classes and performance
 * [ ] Absences per student
 * [ ] Average attendance per class/teacher
 
@@ -60,10 +63,10 @@ A school management system built with Django, designed for English language scho
 
 * [ ] Automatic email notifications:
 
-  * [ ] Consecutive absences (>2 days)
-  * [ ] Enrollment confirmation
-  * [ ] General announcements
-  * [ ] Certificates and forms (PDF attachments)
+* [ ] Consecutive absences (>2 days)
+* [ ] Enrollment confirmation
+* [ ] General announcements
+* [ ] Certificates and forms (PDF attachments)
 
 ---
 
@@ -101,4 +104,3 @@ A school management system built with Django, designed for English language scho
 ---
 
 > 💡 Modular and scalable project, tailored for the educational market in Ireland.
-
