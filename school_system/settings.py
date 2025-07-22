@@ -30,8 +30,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = '/accounts/redirect/'
+# LOGIN_REDIRECT_URL = '/accounts/redirect/'
 
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'  # Será sobrescrito pela `get_success_url`
+LOGOUT_REDIRECT_URL = 'login'
 
 # Application definition
 
@@ -50,6 +53,7 @@ INSTALLED_APPS = [
     'apps.students',
     'apps.teachers',
     'apps.classes',
+    'apps.admins',
 ]
 
 

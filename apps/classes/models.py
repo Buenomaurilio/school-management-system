@@ -7,8 +7,7 @@ from django.db import models
 class Classroom(models.Model):
     name = models.CharField(max_length=100)
     organization = models.ForeignKey('organizations.Organization', on_delete=models.CASCADE)
-    teacher = models.ForeignKey('teachers.Teacher', on_delete=models.SET_NULL, null=True, blank=True)
-    # students = models.ManyToManyField('students.Student',  blank=True, related_name='classrooms')
+    teacher = models.ForeignKey('teachers.Teacher', on_delete=models.CASCADE, related_name='classrooms')
     students = models.ManyToManyField('students.Student', blank=True, related_name='classrooms', db_table='classes_classroom_students')
 
     schedule = models.CharField(max_length=100)

@@ -1,22 +1,16 @@
-from django.http import HttpResponseForbidden
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 from apps.classes.models import Classroom
 from apps.teachers.models import Teacher
 
-
 @login_required
 def teacher_dashboard(request):
-    if not request.user.role == 'teacher':
-        return HttpResponseForbidden("403 - Access Denied")
-    # if not request.user.role == 'teacher':
-    #     return render(request, '403.html')  # criar se quiser
-
     try:
-        teacher = Teacher.objects.get(user=request.user)
+        teacher = request.user.teacher
+        classrooms = Classroom.objects.filter(teacher=teacher)
     except Teacher.DoesNotExist:
-        teacher = None
+        classrooms = []
 
-    classrooms = Classroom.objects.filter(teacher=teacher)
-
-    return render(request, 'teachers/dashboard.html', {'classrooms': classrooms})
+    return render(request, 'teachers/dashboard.html', {
+        'classrooms': classrooms
+    })

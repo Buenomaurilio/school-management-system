@@ -1,33 +1,35 @@
-from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
+from django.contrib import messages
+from apps.teachers.models import Teacher
+from apps.students.models import Student
 
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
+class CustomLoginView(LoginView):
+    template_name = 'accounts/login.html'
+    redirect_authenticated_user = True
 
-            # Redirecionar com base no papel (role)
-            if user.role == 'admin':
-                return redirect('/admin/')
-            elif user.role == 'teacher':
-                return redirect('/teacher/dashboard/')
-            elif user.role == 'student':
-                return redirect('/student/dashboard/')
-            elif user.role == 'secretary':
-                return redirect('/secretary/')
-            else:
-                return redirect('/')  # fallback
-    else:
-        form = AuthenticationForm()
+    def get_success_url(self):
+        user = self.request.user
 
-    return render(request, 'accounts/login.html', {'form': form})
+        # Verifica se está associado a uma organização
+        if not hasattr(user, 'organization') and not hasattr(user, 'teacher') and not hasattr(user, 'student'):
+            messages.error(self.request, "No role or organization linked to your account.")
+            return reverse_lazy('login')
 
+        if hasattr(user, 'teacher'):
+            return reverse_lazy('dashboard_teacher')
 
+        elif hasattr(user, 'student'):
+            return reverse_lazy('dashboard_student')
+
+        elif user.is_superuser:
+            return reverse_lazy('dashboard_admin')
+
+        else:
+            messages.error(self.request, "Invalid user role.")
+            return reverse_lazy('login')
 
 @login_required
 def redirect_after_login(request):
